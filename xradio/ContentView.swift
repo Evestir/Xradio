@@ -34,11 +34,6 @@ struct ContentView: View {
     @State var isPlaying:Bool = false
     var body: some View {
         VStack {
-            VStack {
-                Text("Sans")
-                TextField("", text: $LinkUrl)
-            }
-            .padding()
             ScrollView {
                 ForEach($queue, id: \.self) { item in
                     HStack {
