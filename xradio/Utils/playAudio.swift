@@ -9,9 +9,10 @@ import Foundation
 import AVFoundation
 
 var player = AVPlayer()
+var curUrl:String = ""
 
-func playFromUrl(url:String) {
-    if let url = URL(string: url) {
+func playFromUrl(uri:String) {
+    if let url = URL(string: uri) {
         player = AVPlayer(url: url)
         player.play()
     }

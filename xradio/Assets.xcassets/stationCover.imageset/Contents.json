@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "attachment-M83_HUWD10_CoverArt_hires.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -7,6 +7,8 @@
 
 import Foundation
 
+var currentMusic:Music = Music(name: "", author: "", coverImage: "")
+
 func fetchData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
     URLSession.shared.dataTask(with: url) { data, response, error in
         completion(data, response, error)
@@ -14,6 +16,7 @@ func fetchData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?
 }
 
 func makeArrayFromJson(jsonString: String) -> Array<Music> {
+    var isFirst:Bool = true
     var queueList: Array<Music> = []
     if let data = jsonString.data(using: .utf8) {
         do {
@@ -23,7 +26,9 @@ func makeArrayFromJson(jsonString: String) -> Array<Music> {
                     if let artistName = item["artist_name"] as? String, 
                         let songName = item["song_name"] as? String,
                         let imageLink = item["itunes_img"] as? String {
+                        if (isFirst) { currentMusic = Music(name: songName, author: artistName, coverImage: imageLink) }
                         queueList.append(Music(name: songName, author: artistName, coverImage: imageLink))
+                        
                         //print("Artist: \(artistName), Song: \(songName), CoverImage: \(imageLink)")
                     }
                 }
