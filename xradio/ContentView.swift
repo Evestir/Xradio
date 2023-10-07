@@ -45,7 +45,7 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 HStack {
-                    Image(systemName: "dot.radiowaves.left.and.right").resizable().frame(width: 12, height: 12).padding(EdgeInsets(top: 6, leading: 10, bottom: 6, trailing: 0))
+                    Image(systemName: "dot.radiowaves.left.and.right").resizable().frame(width: 12, height: 12).symbolEffect(.bounce.down.byLayer, options: .repeating, value: isPlaying).padding(EdgeInsets(top: 6, leading: 10, bottom: 6, trailing: 0))
                     Text(currentPlayingMusic.name.lowercased().capitalized).fontWeight(.semibold).padding(.leading, 4)
                     Image(systemName: "music.mic").resizable().frame(width: 10, height: 10)
                     Text(currentPlayingMusic.author.lowercased().capitalized).fontWeight(.thin)

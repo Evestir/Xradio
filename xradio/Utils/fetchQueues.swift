@@ -26,7 +26,7 @@ func makeArrayFromJson(jsonString: String) -> Array<Music> {
                     if let artistName = item["artist_name"] as? String, 
                         let songName = item["song_name"] as? String,
                         let imageLink = item["itunes_img"] as? String {
-                        if (isFirst) { currentMusic = Music(name: songName, author: artistName, coverImage: imageLink) }
+                        if (isFirst) { currentMusic = Music(name: songName, author: artistName, coverImage: imageLink); isFirst = false }
                         queueList.append(Music(name: songName, author: artistName, coverImage: imageLink))
                         
                         //print("Artist: \(artistName), Song: \(songName), CoverImage: \(imageLink)")
@@ -39,6 +39,8 @@ func makeArrayFromJson(jsonString: String) -> Array<Music> {
     } else {
         print("Invalid JSON string.")
     }
+    
+    isFirst = true
     return queueList
 }
 
